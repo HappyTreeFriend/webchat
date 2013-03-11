@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'WebFont';
+  src: url('http://socketapi.com/tools/font/goodtime/goodtime-webfont.eot');
+  src: local('?'),
+       url('http://socketapi.com/tools/font/goodtime/goodtime-webfont.woff') format('woff'),
+       url('http://socketapi.com/tools/font/goodtime/goodtime-webfont.ttf') format('truetype'),
+       url('http://socketapi.com/tools/font/goodtime/goodtime-webfont.svg#webfont') format('svg');
+}
+h4 {
+  font-family: 'WebFont', Arial, sans-serif; 
+}
+.chat button {
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  
+  box-shadow: 1px 1px 3px #999;
+  -webkit-box-shadow: 1px 1px 3px #999;
+  -moz-box-shadow: 1px 1px 3px #999;
+  
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+  background: -moz-linear-gradient(#fff, #eee);
+}
+.chat button:hover{
+  background: #ddd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ddd), color-stop(90%, #eee), to(#fff));
+  background: -moz-linear-gradient(#ddd, #eee 90%, #fff);
+  text-shadow: 0 -1px 1px #eee;
+}

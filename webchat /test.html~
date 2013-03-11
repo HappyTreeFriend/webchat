@@ -1,0 +1,13 @@
+<!--<script type="text/javascript">
+var confirm_msg="-------------\n如果选择离开，您的数据将得不到保存，您确定离开吗？\n-------------";
+window.onbeforeunload = function(event){
+event = event || window.event;
+event.returnValue = confirm_msg;
+}    
+</script>-->
+<!--chrome-->
+<script type="text/javascript">
+window.onbeforeunload = function(){
+confirm("y or N");
+} 
+</script>

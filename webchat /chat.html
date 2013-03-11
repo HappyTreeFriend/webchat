@@ -1,0 +1,31 @@
+<!--容器-->
+<article id="chat-main" class="container well">
+	<div class="well-white" id="show-msg">
+		<!--频道显示框-->
+		<div id="channel-show" class="tab-content">
+			<div id="channel_0" class="tab-pane active input-xlarge chat-channel" readonly="readonly" style="z-index:0">
+				<div class="alert alert-info">
+					<a class="close" data-dismiss="alert">×</a>
+					<strong>HELP</strong><br/>按回车键（Enter）发送消息<br/>按退出键（Esc）离开回到登录页<br/>频道以“#”为前缀<br/>点击右上角用户名可选功能菜单<br/>
+				</div>
+			</div>
+		</div>	
+		<hr id="hr-show" />
+		<!--用户显示框-->
+		<div id="user-channel" class="input-xlarge" readonly="readonly"></div>
+	</div>
+	<!--附加功能：表情-->
+	<section id="chat-menu">
+
+	</section>
+	<!--内容输入框-->
+	<textarea class="input-xlarge" id="send-msg" placeholder="请输入您要发送的消息" autofocus required onkeydown="Socket.Keycatch(event);"></textarea>
+	<!--<section id="chat-send" class="">
+	<form>
+	<textarea class="input-xlarge" id="send-msg" autofocus required></textarea>
+	<button type="submit" id="btn-send" class="btn btn-primary" onclick="Socket.send();return false;">
+	发送(Enter)
+	</button>
+	</form>
+	</section>-->
+</article>

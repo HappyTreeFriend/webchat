@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<title>聊聊天，喝喝茶</title>
+		<link href="css/bootstrap.css" rel="stylesheet"/>
+		<!--<link href="css/bootstrap-responsive.css"  rel="stylesheet"/>-->
+		<link href="css/webchat.css" rel="stylesheet"/>
+		<link href="#" rel="stylesheet"/>
+		<style>
+		</style>
+		<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/webchat.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#base-main').load('login.html #page_login', function() {
+					Chat.Login_Input();
+				});
+				/*window.onresize(function() {
+				alert('窗口大小改变');
+				});*/
+				//Chat.Show_Progress('base-main', 3);
+			});
+		</script>
+	</head>
+	<!--<body onkeydown="Chat.ShowConfirmClose(event)" onMouseDown="Chat.ShowConfirmClose(event);">-->
+	<body>
+		<!--聊天头部-->
+		<section id="top-head">
+			<div class="navbar navbar-static-top">
+				<div class="navbar-inner">
+					<div class="container">
+						<!--标签-->
+					</div>
+					<ul id="top-setting" class="nav">
+						<li class="dropdown">
+							<a id="top-btn" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							<div id="top-btn-inner">
+								<i class="icon-user icon-white"></i><span>游客</span><b class="caret"></b>
+							</div> </a>
+							<ul class="dropdown-menu pull-right">
+								<!-- links -->
+								<!--<li>
+								<a href="javascript:Chat.menu_click='add_channel';Chat.Top_Menu();">进入频道</a>
+								</li>
+								<li>
+								<a href="#">查找用户</a>
+								</li>-->
+								<li id="alert-setting">
+									<a href="#">设置</a>
+								</li>
+								<li id="alert-help">
+									<a href="#modal-alert">帮助</a>
+								</li>
+								<li class="divider"></li>
+								<li>
+									<a href="javascript:window.location.href=Chat.origin;">退出</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!--弹出框-->
+		<section class="modal hide fade" id="modal-alert">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal">×</a>
+				<h3>对话框标题</h3>
+			</div>
+			<div class="modal-body">
+				<p>
+					对话框内容
+				</p>
+			</div>
+			<div class="modal-footer">
+				<a id="m_ok"  class="btn btn-primary" onclick="Chat.Click_Menu();">确定</a>
+			</div>
+		</section>
+		<!--容器-->
+		<div id="base-main"></div>
+	</body>
+</html>

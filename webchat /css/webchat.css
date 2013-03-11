@@ -1,0 +1,148 @@
+body {
+	background: #1684C2;
+	background-image: url('../img/glow.png');
+}
+textarea {	resize: none;}
+.alert{	margin-right: 15px;}
+#top-head > .navbar > .navbar-inner {	height: 52px;}
+#top-head > .navbar > .navbar-inner > .container {
+	position: relative;
+	bottom: -15px;
+	margin-left: 0px;
+	margin-right: 0px;
+	display:initial;
+}
+#top-setting {
+	float: right;
+	margin-top: -5px;
+}
+#top-setting #top-btn {
+	display: inline-block;
+	height: 10px;
+	
+}
+#top-setting #top-btn > #top-btn-inner{
+	margin-top:-5px;
+}
+#top-setting #top-btn > #top-btn-inner > span{
+	padding-left:3px;
+	padding-right:10px;
+}
+#chat-main {
+	border-radius: 4px;
+	margin: auto;
+	width: 90%;
+	margin-top: 30px;
+}
+#form-center {
+	width: 50%;
+	height: 150px;
+	margin: auto;
+	text-align: center;
+}
+
+#chat-tab {
+	/*bottom: -13px;
+	 left: -7px;*/
+	border-bottom: none;
+}
+#chat-tab > li > a > span.close{	margin-top:-12px;}
+#chat-tab.nav-tabs > .active > a, #chat-tab.nav-tabs > li > a:hover {	border: 0px;}
+#chat-tab.nav-tabs > .active > a {	height: 10px;}
+#chat-tab.nav-tabs > li,#chat-tab.nav-tabs > .active,#chat-tab.nav-tabs > li:hover{height:100%;}
+#chat-tab.nav-tabs > li:not(.active) > a:hover {
+	background-color: rgba(0, 0, 0, 0);/*背景色透明*/
+	/*-webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+	 -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+	 box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+	 background-image: -moz-linear-gradient(top, #54B4EB, #2FA4E7);
+	 background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#54B4EB), to(#2FA4E7));
+	 background-image: -webkit-linear-gradient(top, #54B4EB, #2FA4E7);
+	 background-image: -o-linear-gradient(top, #54B4EB, #2FA4E7);
+	 background-image: linear-gradient(to bottom, #54B4EB, #2FA4E7);*/
+}
+.well-white {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: white;
+	border: 1px solid #E3E3E3;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+#show-msg {
+	width: 90%;
+	margin: auto;
+}
+#show-msg .chat-channel,#show-msg #user-channel {
+	width: 99%;
+	border: none;
+	background: white;
+	box-shadow: none;
+	overflow-y:scroll;
+	color:black;
+}
+/*::-webkit-scrollbar-track{
+	-webkit-box-shadow: none; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb{
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #3DAAE9;
+	background-image: -moz-linear-gradient(top, #46AEEA, #2FA4E7);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#46AEEA), to(#2FA4E7));
+	background-image: -webkit-linear-gradient(top, #46AEEA, #2FA4E7);
+	background-image: -o-linear-gradient(top, #46AEEA, #2FA4E7);
+	background-image: linear-gradient(to bottom, #46AEEA, #2FA4E7);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-button{
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+	background-color: #3DAAE9;
+	background-image: -moz-linear-gradient(top, #46AEEA, #2FA4E7);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#46AEEA), to(#2FA4E7));
+	background-image: -webkit-linear-gradient(top, #46AEEA, #2FA4E7);
+	background-image: -o-linear-gradient(top, #46AEEA, #2FA4E7);
+	background-image: linear-gradient(to bottom, #46AEEA, #2FA4E7);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}*/
+#show-msg .chat-channel {height: 350px;}
+#show-msg #user-channel {	height: 100px;}
+#hr-show {
+	border-color: #1684C2;
+	position: relative;
+	width: 96%;
+	border-width: 1px;
+	margin: 10px;
+}
+#chat-menu{	height: 40px;}
+#chat-send{
+	width:90%;
+	margin:auto;
+}
+#send-msg {
+	width: 91%;
+	height: 50px;
+	margin-left: 4%;
+}
+#btn-send {
+	width: 70px;
+	height: 50px;
+	margin-left: 10px;
+}
+/*登录*/
+#page_login {	height: 300px;}
+#base-main{
+	position: absolute;
+	top: 28%;
+	width: 100%;
+}
+#chat-send > form{margin:10px;}
+#chat-send > form > textarea{margin:auto;}

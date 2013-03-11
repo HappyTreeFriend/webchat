@@ -1,0 +1,110 @@
+#!/usr/bin/env python
+#coding:utf-8
+
+from mod_pywebsocket import *
+import thread
+import getopt
+import os
+import sys
+import time
+
+ORIGIN = 'http://127.0.0.1:8000'
+
+_GOODBYE_MESSAGE = u'Goodbye'
+_HEARTBEAT_ = u'Heartbeat'
+
+#CLIENT={'channel_name1':[client1,client2,...],'channel_name2':[],...}
+CLIENT={u'大厅':[]}
+
+def do_channel(channel_name,request,status):
+	''' 
+	选择或创建频道,并将客户端加入
+	返回当前频道的客户端
+	'''
+	global CLIENT
+	#查找是否已有频道
+	if CLIENT.has_key(channel_name):
+		pass
+	else:
+		CLIENT[channel_name]=[]
+	#添加客户端
+	if status == u'3':
+		CLIENT[channel_name].append(request)
+	return CLIENT[channel_name]
+
+
+def web_socket_do_extra_handshake(request):
+	'''
+	判断是否已有用户名
+	加入大厅的客户端
+	'''
+	global CLIENT, ORIGIN
+	if request.ws_origin == ORIGIN:
+		#CLIENT.append(request.connection.remote_addr)
+		CLIENT[u'大厅'].append(request)
+		print CLIENT
+		return
+	raise ValueError('Unacceptable origin: %r' % request.ws_origin)
+
+
+def web_socket_transfer_data(request):
+	'''
+	处理数据
+	'''
+	while True:
+		message = request.ws_stream.receive_message()
+		#import pdb
+		#pdb.set_trace()
+		#将传递过来的字符串转换成字典dict_line
+		exec("dict_msg = "+message)
+		message = unicode(dict_msg["message"])
+		username = unicode(dict_msg["username"])
+		channel = unicode(dict_msg["channel"])
+		status = unicode(dict_msg["status"])
+		if message is None:
+			return
+		#选择或创建频道,并将客户端加入
+		if status == u'3':
+			tmp_channel = message
+		else:
+			tmp_channel = channel
+		tmp_CLIENT = do_channel(tmp_channel,request,status)
+		print tmp_CLIENT
+		#判断状态
+		#0：全部客户端发送
+		#1：本客户端不发送
+		#2：全部客户端不发送
+		#3：进入频道
+		if status == u'2':
+			continue
+		elif status == u'1':
+			tmp_CLIENT.remove(request)
+		elif status == u'0':
+			pass
+		elif status == 3:
+			#频道的登录消息
+			channel = message
+			message = '进入 #'+message
+		#发送消息
+		for client in tmp_CLIENT:      
+			client.ws_stream.send_message("{'channel':u'"+channel+"','username':u'"+username+"','message':u'"+message+"','status':u'"+status+"'}", binary=False)
+            
+
+def web_socket_passive_closing_handshake(request):
+	'''
+	删除退出大厅的客户端
+	'''
+	global CLIENT
+	code, reason = request.ws_close_code, request.ws_close_reason
+	if code == common.STATUS_NO_STATUS_RECEIVED:
+		code = 1001
+		reason = ''
+	code = 1001
+	reason = 'bye'
+    #CLIENT.remove(request.connection.remote_addr)
+	CLIENT[u'大厅'].remove(request)
+	print CLIENT
+	return code, reason
+
+
+# vi:sts=4 sw=4 et
